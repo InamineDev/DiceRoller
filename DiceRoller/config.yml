@@ -1,0 +1,41 @@
+#####
+# Placeholders:
+# %player% - Replaces with Players display name. (Only usable for Broadcast messages)
+# %prefix% - Replaces with the Prefix created below
+# %result% - What the roll resulted in
+# %sides% - number of sides on the die being rolled
+# %bccooldown% - replaces with the total cooldown for broll (not remaining)
+# %pcooldown% - replaces with the total cooldown for roll (not remaining)
+#####
+
+# cooldown for /broll
+broadcast-cooldown: 3
+# cooldown for /roll
+personal-cooldown: 2
+# if this is true, players rolling a die will see a particle effect
+# you will be able to choose from a list of particles in future versions
+particle-effect: true
+
+## MESSAGES ##
+prefix: '&6[&eDice Roller&6] '
+noPermission: '&c&oYou don''t have permission to use that command!'
+die-rolled: '&e&oRolling a %sides% sided die &6&o(D%sides%)'
+roll-result: '&9Result: &e%result%&9!'
+usage:
+  - '&c Bad Usage!'
+  - '&6&lUsage:'
+  - '&e&o  /roll <die>'
+  - '&bDice to choose from:'
+  - '&bD4&1,&9D6&1,&bD8&1,&9D10&1,&bD12&1,&9D20&1,&bD100'
+broll-usage:
+  - '&c Bad Usage!'
+  - '&6&lUsage:'
+  - '&e&o  /broll <die>'
+  - '&bDice to choose from:'
+  - '&bD4&1,&9D6&1,&bD8&1,&9D10&1,&bD12&1,&9D20&1,&bD100'
+broadcast-die-rolled: '&e%player% &6rolled a &e%sides% &6sided die! &e&o(D%sides%)'
+broadcast-roll-result: '&9Result: &e%result%&9!'
+reload-message: '&aConfiguration reloaded!'
+broadcast-cooldown-message: "&4You must wait %bccooldown% seconds between each use of this command!"
+personal-cooldown-message: "&4You must wait %pcooldown% seconds between each use of this command!"
+
