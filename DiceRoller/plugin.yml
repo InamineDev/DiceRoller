@@ -3,7 +3,7 @@ author: Inamine
 description: This plugin rolls common dice from roleplaying games!
 website: https://www.spigotmc.org/resources/dice-roller-roleplay-dice.22408/
 main: me.inamine.DiceRoller
-version: 1.3.0
+version: 1.4.0
 commands:
     roll:
         description: Rolls a die.
