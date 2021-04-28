@@ -59,7 +59,7 @@ public class DRRoller {
             }
             for (int i = 0; i < rolls; i++) {
                 int singleResult = ThreadLocalRandom.current().nextInt(1, faces + 1);
-                total+=singleResult;
+                total += singleResult;
                 results.append(singleResult).append(",");
             }
             results = new StringBuilder(results.substring(0, results.length() - 1));
@@ -105,5 +105,4 @@ public class DRRoller {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         }
     }
-
 }
