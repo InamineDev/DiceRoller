@@ -1,0 +1,67 @@
+name: DiceRoller
+version: @version@
+main: me.inamine.diceroller.DiceRoller
+api-version: 1.16
+authors: [ Inamine ]
+description: Roll Dice with ease!
+website: www.inamine.me
+permissions:
+  diceroller.*:
+    default: op
+    description: All permissions from Dice Roller
+    children:
+      diceroller.reload: true
+      diceroller.help: true
+      diceroller.bypass.*: true
+      diceroller.roll.*: true
+      diceroller.broadcast.*: true
+  diceroller.reload:
+    default: op
+    description: Allows user to reload config and message files
+  diceroller.help:
+    default: true
+    description: Allows user to view help info upon /diceroller
+  diceroller.bypass.*:
+    default: op
+    description: Bypasses cooldowns and roll limits
+    children:
+      diceroller.bypass.max: true
+      diceroller.bypass.roll: true
+      diceroller.bypass.broadcast: true
+  diceroller.bypass.max:
+    default: op
+    description: Bypasses max roll limit
+  diceroller.bypass.roll:
+    default: op
+    description: Bypasses cooldown for rolls
+  diceroller.bypass.broadcast:
+    default: op
+    description: Bypasses cooldown for broadcasted rolls
+  diceroller.roll:
+    default: true
+  diceroller.broadcast:
+    default: true
+  diceroller.broadcast.view:
+    default: true
+    description: Allows player to see Dice Roller results from broadcasts
+  diceroller.roll.player:
+    default: true
+  diceroller.broadcast.player:
+    default: true
+  diceroller.roll.custom:
+    default: op
+  diceroller.broadcast.custom:
+    default: op
+  diceroller.roll.*:
+    default: op
+    children:
+      diceroller.roll.player: true
+      diceroller.roll.custom: true
+      diceroller.roll: true
+  diceroller.broadcast.*:
+    default: op
+    children:
+      diceroller.broadcast.player: true
+      diceroller.broadcast.custom: true
+      diceroller.broadcast.view: true
+      diceroller.broadcast: true
