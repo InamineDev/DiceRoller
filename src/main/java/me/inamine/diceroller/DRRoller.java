@@ -13,10 +13,12 @@ public class DRRoller {
 
     private final DRFileManager fileManager;
     private final FileConfiguration config;
+    private final DRVentureChatLink chatLink;
 
     public DRRoller(DRFileManager fileManager, FileConfiguration config) {
         this.fileManager = fileManager;
         this.config = config;
+        chatLink = new DRVentureChatLink(config);
     }
 
     public void rollPlayer(Player player, boolean broadcast) {
@@ -98,7 +100,9 @@ public class DRRoller {
         if (broadcast) {
             for (Player target : Bukkit.getOnlinePlayers()) {
                 if (target.hasPermission("diceroller.broadcast.view")) {
-                    target.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                    if (chatLink.isListening(player, target)) {
+                        target.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                    }
                 }
             }
         } else {

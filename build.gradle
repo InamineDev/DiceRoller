@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'me.inamine'
-version = '1.5'
+version = '1.5.2'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 task copyJarToBin {

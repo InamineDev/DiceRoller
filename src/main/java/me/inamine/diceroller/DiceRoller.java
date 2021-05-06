@@ -3,7 +3,7 @@ package me.inamine.diceroller;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class DiceRoller extends JavaPlugin {
+public class DiceRoller extends JavaPlugin {
 
     public DRFileManager fileManager;
     public DRCommandManager commandManager;
@@ -23,4 +23,5 @@ public final class DiceRoller extends JavaPlugin {
     @Override
     public void onDisable() {
     }
+
 }

@@ -1,10 +1,11 @@
 name: DiceRoller
 version: @version@
 main: me.inamine.diceroller.DiceRoller
-api-version: 1.16
 authors: [ Inamine ]
 description: Roll Dice with ease!
 website: www.inamine.me
+softdepend:
+  - VentureChat
 permissions:
   diceroller.*:
     default: op

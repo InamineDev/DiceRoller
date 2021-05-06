@@ -1,3 +1,10 @@
+venturechat:
+  use: false
+  use-whitelist: false
+  whitelist-channels:
+    - local
+    - roller
+
 particle-count: 10
 ## Cooldown in seconds
 personal-cooldown: 0.2

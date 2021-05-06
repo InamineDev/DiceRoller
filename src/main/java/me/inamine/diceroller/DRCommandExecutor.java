@@ -16,24 +16,23 @@ import java.util.List;
 
 public class DRCommandExecutor implements CommandExecutor {
 
-    private final DRRoller roller;
     private final DRFileManager fileManager;
     private final Plugin plugin;
+    private DRRoller roller;
 
     List<String> bCoolDown = new ArrayList<>();
     List<String> pCoolDown = new ArrayList<>();
 
-    public DRCommandExecutor(DRFileManager fileManager, DRRoller roller, Plugin plugin) {
-        this.roller = roller;
+    public DRCommandExecutor(DRFileManager fileManager, DRRoller roller,  Plugin plugin) {
         this.fileManager = fileManager;
         this.plugin = plugin;
+        this.roller = roller;
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         String commandName = command.getName();
         String prefix = fileManager.getMsg().getString("prefix", "&b&l[&eDiceRoller&b&l] ");
-        if (prefix == null) prefix = "&b&l[&eDiceRoller&b&l] ";
         if (commandName.equalsIgnoreCase("diceroller")) {
             if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
                 if (!(sender instanceof Player) || sender.hasPermission("diceroller.reload")) {
