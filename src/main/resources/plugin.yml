@@ -1,5 +1,5 @@
 name: DiceRoller
-version: @version@
+version: 1.5.4
 main: me.inamine.diceroller.DiceRoller
 authors: [ Inamine ]
 description: Roll Dice with ease!

@@ -80,19 +80,19 @@ public class DRCommandManager {
         String baseCommand = "diceroller";
         String baseDescription = "Dice Roller base command";
         String baseUsage = "/diceroller [reload]";
-        String basePermission = mainPermission + ".help";
+        String basePermission = mainPermission + "help";
         registerCommand(baseCommand, baseDescription, baseUsage, basePermission, "dr", "droller");
         // Roll
         String rollCommand = "roll";
         String rollDescription = "Roll dice to yourself";
         String rollUsage = "/roll d<#>|player [quantity]";
-        String rollPermission = mainPermission + ".roll";
+        String rollPermission = mainPermission + "roll";
         registerCommand(rollCommand, rollDescription, rollUsage, rollPermission);
         // Broadcast Roll
         String brollCommand = "broll";
         String brollDescription = "Roll dice to the server";
         String brollUsage = "/broll d<#>|player [quantity]";
-        String brollPermission = mainPermission + ".broadcast";
+        String brollPermission = mainPermission + "broadcast";
         registerCommand(brollCommand, brollDescription, brollUsage, brollPermission, "broadcastroll");
     }
 }

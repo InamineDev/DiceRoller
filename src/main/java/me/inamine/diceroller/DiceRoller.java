@@ -15,9 +15,9 @@ public class DiceRoller extends JavaPlugin {
         fileManager.checkFiles();
         commandManager = new DRCommandManager(this, fileManager);
         commandManager.createAll();
-        Bukkit.getLogger().info("Dice Roller started successfully!");
         int pluginId = 11171;
-        DRMetrics metrics = new DRMetrics(this, pluginId);
+        new DRMetrics(this, pluginId);
+        Bukkit.getLogger().info("Dice Roller started successfully!");
     }
 
     @Override

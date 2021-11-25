@@ -8,7 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.List;
-import java.util.Set;
 
 public class DRVentureChatLink {
     private final FileConfiguration config;
@@ -20,11 +19,6 @@ public class DRVentureChatLink {
     private String getTalking(Player player) {
         MineverseChatPlayer mcp = MineverseChatAPI.getOnlineMineverseChatPlayer(player);
         return mcp.getCurrentChannel().getName();
-    }
-
-    private Set<String> getListening(Player player) {
-        MineverseChatPlayer mcp = MineverseChatAPI.getOnlineMineverseChatPlayer(player);
-        return mcp.getListening();
     }
 
     private boolean isWhitelisted(String ch) {
@@ -48,6 +42,11 @@ public class DRVentureChatLink {
             return false;
         }
         MineverseChatPlayer mcListener = MineverseChatAPI.getOnlineMineverseChatPlayer(listener);
-        return mcListener.isListening(rolledCh);
+        MineverseChatPlayer mcSender = MineverseChatAPI.getOnlineMineverseChatPlayer(sender);
+        if (mcListener.isListening(rolledCh)) {
+            double radius = mcSender.getCurrentChannel().getDistance();
+            return listener.getLocation().distance(sender.getLocation()) <= radius;
+        }
+        else return false;
     }
 }
