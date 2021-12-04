@@ -77,11 +77,12 @@ public class DRCommandManager {
     public void createAll() {
         String mainPermission = "diceroller.";
         // Base Command
-        String baseCommand = "diceroller";
+        String baseCommand = plugin.getConfig().getString("base-command", "diceroller");
         String baseDescription = "Dice Roller base command";
-        String baseUsage = "/diceroller [reload]";
-        String basePermission = mainPermission + "help";
-        registerCommand(baseCommand, baseDescription, baseUsage, basePermission, "dr", "droller");
+        String baseUsage = "/" + baseCommand +" [reload]";
+        String basePermission = mainPermission + ".help";
+        String[] aliases = plugin.getConfig().getStringList("aliases").toArray(new String[0]);
+        registerCommand(baseCommand, baseDescription, baseUsage, basePermission, aliases);
         // Roll
         String rollCommand = "roll";
         String rollDescription = "Roll dice to yourself";
