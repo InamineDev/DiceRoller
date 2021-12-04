@@ -45,6 +45,11 @@ public class DRRoller {
                 }
             }
         } else {
+            for (Player target : Bukkit.getOnlinePlayers()) {
+                if (target.hasPermission("diceroller.seeall")) {
+                    target.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                }
+            }
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         }
     }

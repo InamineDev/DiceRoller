@@ -1,5 +1,5 @@
 name: DiceRoller
-version: 1.5.4
+version: 1.5.5
 main: me.inamine.diceroller.DiceRoller
 authors: [ Inamine ]
 description: Roll Dice with ease!
@@ -16,6 +16,7 @@ permissions:
       diceroller.bypass.*: true
       diceroller.roll.*: true
       diceroller.broadcast.*: true
+      diceroller.seeall: true
   diceroller.reload:
     default: op
     description: Allows user to reload config and message files
@@ -66,3 +67,5 @@ permissions:
       diceroller.broadcast.custom: true
       diceroller.broadcast.view: true
       diceroller.broadcast: true
+  diceroller.seeall:
+    default: false
