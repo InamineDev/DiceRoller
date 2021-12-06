@@ -17,7 +17,6 @@ public class DRCommandManager {
     private final DRCommandExecutor commandExecutor;
     private final DRTabCompleter tabCompleter;
 
-
     public DRCommandManager(Plugin plugin, DRFileManager fileManager) {
         this.plugin = plugin;
         commandExecutor = new DRCommandExecutor(fileManager, new DRRoller(fileManager, plugin.getConfig()), plugin);
