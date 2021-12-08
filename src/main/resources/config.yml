@@ -4,6 +4,19 @@ venturechat:
   whitelist-channels:
     - local
     - roller
+commands:
+  base:
+    command: "diceroller"
+    aliases:
+      - "dr"
+      - "droller"
+  roll:
+    command: "roll"
+    aliases: []
+  broadcast-roll:
+    command: "broll"
+    aliases:
+      - "broadcastroll"
 
 particle-count: 10
 ## Cooldown in seconds

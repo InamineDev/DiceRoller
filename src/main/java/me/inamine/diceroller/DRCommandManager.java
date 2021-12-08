@@ -76,23 +76,25 @@ public class DRCommandManager {
     public void createAll() {
         String mainPermission = "diceroller.";
         // Base Command
-        String baseCommand = plugin.getConfig().getString("base-command", "diceroller");
+        String baseCommand = plugin.getConfig().getString("commands.base.command", "diceroller");
+        String[] baseAliases = plugin.getConfig().getStringList("commands.base.aliases").toArray(new String[0]);
         String baseDescription = "Dice Roller base command";
         String baseUsage = "/" + baseCommand +" [reload]";
         String basePermission = mainPermission + ".help";
-        String[] aliases = plugin.getConfig().getStringList("aliases").toArray(new String[0]);
-        registerCommand(baseCommand, baseDescription, baseUsage, basePermission, aliases);
+        registerCommand(baseCommand, baseDescription, baseUsage, basePermission, baseAliases);
         // Roll
-        String rollCommand = "roll";
+        String rollCommand = plugin.getConfig().getString("commands.roll.command", "roll");
+        String[] rollAliases = plugin.getConfig().getStringList("commands.roll.aliases").toArray(new String[0]);
         String rollDescription = "Roll dice to yourself";
         String rollUsage = "/roll d<#>|player [quantity]";
         String rollPermission = mainPermission + "roll";
-        registerCommand(rollCommand, rollDescription, rollUsage, rollPermission);
+        registerCommand(rollCommand, rollDescription, rollUsage, rollPermission, rollAliases);
         // Broadcast Roll
-        String brollCommand = "broll";
+        String brollCommand = plugin.getConfig().getString("commands.broadcast-roll.command", "roll");
+        String[] brollAliases = plugin.getConfig().getStringList("commands.broadcast-roll.aliases").toArray(new String[0]);
         String brollDescription = "Roll dice to the server";
         String brollUsage = "/broll d<#>|player [quantity]";
         String brollPermission = mainPermission + "broadcast";
-        registerCommand(brollCommand, brollDescription, brollUsage, brollPermission, "broadcastroll");
+        registerCommand(brollCommand, brollDescription, brollUsage, brollPermission, brollAliases);
     }
 }

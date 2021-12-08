@@ -3,7 +3,7 @@ version: 1.5.6
 main: me.inamine.diceroller.DiceRoller
 authors: [ Inamine ]
 description: Roll Dice with ease!
-website: www.inamine.me
+website: https://www.spigotmc.org/resources/dice-roller-roleplay-dice-random-player-selector.22408/
 softdepend:
   - VentureChat
 permissions:
