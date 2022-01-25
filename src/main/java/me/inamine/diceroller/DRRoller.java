@@ -25,6 +25,7 @@ public class DRRoller {
         List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
         int result = ThreadLocalRandom.current().nextInt(0, onlinePlayers.size());
         String resultName = onlinePlayers.get(result).getName();
+        String resultDisplayName = onlinePlayers.get(result).displayName().toString();
         String message = fileManager.getMsg().getString("player-roll-result");
         if (message == null) {
             Bukkit.getLogger().warning("Invalid string for 'player-roll-result'");
@@ -36,8 +37,11 @@ public class DRRoller {
             return;
         }
         message = message.replace("%result%", resultName)
+                .replace("%result_displayname%", resultDisplayName)
                 .replace("%prefix%", prefix)
-                .replace("%player%", player.getName());
+                .replace("%player%", player.getName())
+                .replace("%player_displayname%", player.displayName().toString())
+                .replace("%displayname%", player.displayName().toString());
         if (broadcast) {
             for (Player target : Bukkit.getOnlinePlayers()) {
                 if (target.hasPermission("diceroller.broadcast.view")) {
@@ -46,7 +50,7 @@ public class DRRoller {
             }
         } else {
             for (Player target : Bukkit.getOnlinePlayers()) {
-                if (target.hasPermission("diceroller.seeall")) {
+                if (target.hasPermission("diceroller.seeall") && target.getUniqueId() != player.getUniqueId()) {
                     target.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                 }
             }
@@ -101,7 +105,9 @@ public class DRRoller {
                 .replace("%player%", player.getName())
                 .replace("%count%", String.valueOf(rolls))
                 .replace("%results%", results.toString())
-                .replace("%total%", String.valueOf(total));
+                .replace("%total%", String.valueOf(total))
+                .replace("%player_displayname%", player.displayName().toString())
+                .replace("%displayname%", player.displayName().toString());
         if (broadcast) {
             for (Player target : Bukkit.getOnlinePlayers()) {
                 if (target.hasPermission("diceroller.broadcast.view")) {
@@ -111,6 +117,11 @@ public class DRRoller {
                 }
             }
         } else {
+            for (Player target : Bukkit.getOnlinePlayers()) {
+                if (target.hasPermission("diceroller.seeall") && target.getUniqueId() != player.getUniqueId()) {
+                    target.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+                }
+            }
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         }
     }
