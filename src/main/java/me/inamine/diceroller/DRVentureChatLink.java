@@ -31,6 +31,11 @@ public class DRVentureChatLink {
     public boolean isListening(Player sender, Player listener) {
         boolean usingVChat = config.getBoolean("venturechat.use");
         if (!usingVChat) {
+            if (config.getBoolean("use-broadcast-range")) {
+                if (sender.getLocation().distance(listener.getLocation()) <= config.getInt("broadcast-range")) {
+                    return true;
+                } else return false;
+            }
             return true;
         }
         if (!Bukkit.getPluginManager().isPluginEnabled("VentureChat")) {

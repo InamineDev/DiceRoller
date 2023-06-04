@@ -4,6 +4,7 @@ venturechat:
   whitelist-channels:
     - local
     - roller
+
 commands:
   base:
     command: "diceroller"
@@ -17,7 +18,9 @@ commands:
     command: "broll"
     aliases:
       - "broadcastroll"
-
+## broadcast range will show to all players within the number of blocks in broadcast-range
+use-broadcast-range: false
+broadcast-range: 15
 particle-count: 10
 ## Cooldown in seconds
 personal-cooldown: 0.2
